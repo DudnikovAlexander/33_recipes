@@ -1,32 +1,22 @@
 from django.contrib import admin
-from mptt.admin import MPTTModelAdmin
-
-from . import models
+from .models import ContactModel, ContactLink, About, Social, ImageAbout
 
 
-class RecipeInline(admin.StackedInline):
-    model = models.Recipe
+class ImageAboutInline(admin.StackedInline):
+    model = ImageAbout
     extra = 1
 
 
-@admin.register(models.Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ["title", "category", "author", "create_at", "id"]
-    prepopulated_fields = {'slug': ('title', 'category'), }
-    inlines = [RecipeInline]
-    save_as = True
-    save_on_top = True
+@admin.register(ContactModel)
+class ContactModelAdmin(admin.ModelAdmin):
+    list_display = ["id", "name", "email", "create_at"]
+    list_display_links = ("name",)
 
 
-@admin.register(models.Recipe)
-class RecipeAdmin(admin.ModelAdmin):
-    list_display = ["name", "prep_time", "cook_time", "post"]
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    inlines = [ImageAboutInline]
 
 
-@admin.register(models.Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'website', 'create_at', 'id']
-
-
-admin.site.register(models.Category, MPTTModelAdmin)
-admin.site.register(models.Tag)
+admin.site.register(ContactLink)
+admin.site.register(Social)
