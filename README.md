@@ -16,7 +16,7 @@
 
 ##### 1) Клонировать репозиторий:
 
-    git clone https://github.com/DudnikovAlexander/33_recipes.git
+    git clone https://github.com/DudnikovAlexander/recipes.git
 
 ##### 2) Создать виртуальное окружение:
 
