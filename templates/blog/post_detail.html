@@ -20,7 +20,7 @@
               <ul class="widget">
                 <li>by {{ post.author }}</li>
                 <li>3 min read</li>
-                <li>20 Comment</li>
+                <li>20 Комментариев</li>
               </ul>
             </div>
           </div>
@@ -51,16 +51,16 @@
                     <h5><i class="fa fa-clock-o"></i> Cook TIME</h5>
                     <span>{{ recipe.cook_time }}</span>
                   </li>
-                  <li><a href="#" class="primary-btn"><i class="fa fa-print"></i> Read more</a></li>
+                  <li><a href="#" class="primary-btn"><i class="fa fa-print"></i> Подробнее</a></li>
                 </ul>
               </div>
 
               <div class="single-post__recipe__details__indegradients">
-                <h5>Ingredients</h5>
+                <h5>Ингредиенты</h5>
                 {{ recipe.ingredients|safe }}
               </div>
               <div class="single-post__recipe__details__direction">
-                <h5>Directions</h5>
+                <h5>Инструкция по приготовлению</h5>
                 {{ recipe.directions|safe }}
               </div>
             {% endfor %}
@@ -78,7 +78,7 @@
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <a href="#" class="single-post__previous">
-                  <h6><span class="arrow_carrot-left"></span> Previous posts</h6>
+                  <h6><span class="arrow_carrot-left"></span> Предыдущий рецепт</h6>
                   <div class="single-post__previous__meta">
                     <h4>08</h4>
                     <span>Aug</span>
@@ -91,7 +91,7 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <a href="#" class="single-post__next">
-                  <h6>Next posts <span class="arrow_carrot-right"></span></h6>
+                  <h6>Следующий рецепт <span class="arrow_carrot-right"></span></h6>
                   <div class="single-post__next__meta">
                     <h4>05</h4>
                     <span>Aug</span>
@@ -122,7 +122,7 @@
           </div>
           <div class="single-post__comment">
             <div class="widget__title">
-              <h4>{{ post.get_comments.count }} Comment</h4>
+              <h4>{{ post.get_comments.count }} Комментариев</h4>
             </div>
             {% for comment in post.get_comments %}
               <div class="single-post__comment__item">
@@ -139,7 +139,7 @@
           </div>
           <div class="single-post__leave__comment">
             <div class="widget__title">
-              <h4>Leave a comment</h4>
+              <h4>Оставить комментарий</h4>
             </div>
             <form action="{% url 'create_comment' pk=post.id %}" method="post">
               {% csrf_token %}
@@ -153,7 +153,7 @@
               </div>
               {#                            <textarea placeholder="Message"></textarea>#}
               {{ form.message }}
-              <button type="submit" class="site-btn">Submit</button>
+              <button type="submit" class="site-btn">Отправить</button>
             </form>
           </div>
         </div>
